@@ -7,8 +7,11 @@ function closeModal(num) {
   document.getElementById("modal" + num).style.display = "none";
 }
 
-function redirectToPage() {
+function redirectToPaymentPage() {
   window.location.href = "payment_comfirmation.html";
 }
 
 //other
+function redirectToArtistPage() {
+  window.location.href = "artist_page.html";
+}

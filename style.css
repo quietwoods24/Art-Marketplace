@@ -105,6 +105,7 @@ main {
     width: 100%;
     max-width: 300px;
     text-align: left;
+    cursor: pointer;
 }
 
 .art-img {
@@ -156,9 +157,10 @@ main {
 
 .top-info-section {
     width: 100%;
-    height: 200px;
-    background-color: #e9e9e9;
+    /*height: 200px;
+    background-color: #e9e9e9;*/
     margin-bottom: 20px;
+    padding: 20px 20px;
 }
 
 .artist-name {
@@ -166,7 +168,7 @@ main {
     font-size: 17px !important;
 }
 
-/* Modal window - open+close */
+/*----------Modal window - open+close------------*/
 .modal {
     display: none; 
     position: fixed;
@@ -190,36 +192,6 @@ main {
     width: 90%;
 }
 
-/* Artist profile section (The part that appears "under" the modal box) */
-.artist-profile-outside {
-    display: flex;
-    align-items: center;
-    padding-left: 20px; /* Adjust as needed for alignment */
-    margin-bottom: -100px; /* Move the content up to overlap the gray header area */
-    position: relative;
-    z-index: 1; /* Make sure it is on top of the overlay */
-}
-
-.artist-avatar-large {
-    width: 120px;
-    height: 120px;
-    background-color: lightgray;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.artist-name-outside {
-    font-size: 1.8em;
-    font-weight: bold;
-    margin: 0;
-}
-
-.artist-desc-outside {
-    color: gray;
-    margin: 5px 0 0 0;
-}
-
-/*--------Modal--------------*/
 .modal-main-content {
     display: flex;
     background-color: #fff; /* White background for the main box */
@@ -351,6 +323,7 @@ main {
     display: flex;
     align-items: center;
     margin-top: 15px;
+    cursor: pointer;
 }
 
 .artist-avatar-small {
@@ -375,3 +348,32 @@ main {
     text-align: justify;
 }
 
+/*-----------Artist profile-----------*/
+.artist-profile-outside {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    position: absolute;
+    position: relative;
+}
+
+.artist-avatar-large {
+    width: 120px;
+    height: 120px;
+    background-color: lightgray;
+    border-radius: 50%;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.artist-name-outside {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.artist-desc-outside {
+    color: gray;
+    margin: 5px 0 0 0;
+}
