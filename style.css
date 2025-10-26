@@ -158,8 +158,8 @@ main {
 .top-info-section {
     width: 100%;
     /*height: 200px;
-    background-color: #e9e9e9;*/
-    margin-bottom: 20px;
+    background-color: #e9e9e9;
+    margin-bottom: 20px;*/
     padding: 20px 20px;
 }
 
@@ -310,6 +310,10 @@ main {
     margin-bottom: 25px;
 }
 
+.pay-btn:hover {
+    background-color: #333;
+}
+
 /*------------Divider Line------------- */
 .details-divider {
     border: 0;
@@ -368,12 +372,173 @@ main {
 }
 
 .artist-name-outside {
-    font-size: 1.8em;
-    font-weight: bold;
+    font-size: 2.8em;
+    font-weight: 300;
     margin: 0;
 }
 
 .artist-desc-outside {
     color: gray;
     margin: 5px 0 0 0;
+    font-size: 1em;
+}
+
+/*-----Payment confirmation----*/
+
+.confirmation-container {
+    max-width: 900px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white; /* Фон, если нужно отделить от основного body */
+}
+
+.confirmation-title {
+    font-size: 2.2em;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.confirmation-divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0 40px 0;
+}
+
+/* Основной Flex-контейнер для изображения и деталей */
+.confirmation-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Левая часть: Изображение */
+.confirmation-artwork-img {
+    flex-shrink: 0; /* Запрещаем сжатие */
+    width: 350px; /* Фиксированная ширина */
+    height: 350px; /* Квадратная форма, как на скрине */
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+/* Правая часть: Детали и кнопка */
+.confirmation-details {
+    flex-grow: 1; /* Занимает оставшееся место */
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+/* Строки деталей */
+.confirm-detail-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.confirm-detail-row label {
+    flex-basis: 140px; /* Фиксированная ширина для label */
+    font-weight: 400;
+    color: #333;
+    flex-shrink: 0; /* Чтобы не сжимался */
+    padding-right: 15px;
+}
+
+/* Имитация поля ввода для вывода информации */
+.confirm-info-box {
+    flex-grow: 1;
+    height: 30px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+}
+
+/* Кнопка Confirm */
+.confirm-btn {
+    margin-top: 104.8px;
+    padding: 8px 8px;
+    width: 100%;
+    max-width: 250px; /* Ограничиваем максимальную ширину кнопки */
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px 40px 10px 40px; /* Пример: используем асимметричное скругление */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confirm-btn:hover {
+    background-color: #333;
+}
+
+/*----------- MODAL SUCCESS STYLES -----------*/
+.modal-success {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(239, 239, 239, 0.5); /* Полупрозрачный фон */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-success-content {
+    background-color: white;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+}
+
+.success-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.success-divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 20px 0;
+}
+
+.success-btn {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px 40px 10px 40px; /* Асимметричное скругление */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 10px auto;
+    display: block; /* Чтобы кнопки занимали всю ширину контейнера */
+}
+
+/* Черная кнопка OK */
+.ok-btn {
+    background-color: black;
+    color: white;
+}
+.ok-btn:hover {
+    background-color: #333;
+}
+
+/* Серая кнопка "View my purchases" */
+.view-btn {
+    background-color: #999;
+    color: white;
+    font-weight: 500;
+}
+.view-btn:hover {
+    background-color: #777;
 }
