@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css" />
 
         <!-- шрифт та скріпт -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <script src="script.js"></script>
     </head>
     <body>
@@ -16,14 +16,24 @@
                 <div class="logo-circle"></div>
                 <span class="logo-text">Our LOGO</span>
             </div>
-            <div class="profile-icon">
-                <div class="profile-circle"></div>
+            <div class="nav-link-container">
+                <div class="nav-link">
+                    <a href="index.html">Illustrations</a>
+                </div>
+                <div class="nav-link">
+                    <a href="search_artist.html">Artists</a>
+                </div>
+                <div class="nav-link">
+                    <a href="purchases.html">Purchases</a>
+                </div>
             </div>
         </header>
 
         <section class="search-section">
             <input type="text" placeholder="Search artwork..." />
-            <button class="search-btn">O-</button>
+            <button class="search-btn">
+                <img src="img/icons/search-normal.svg" alt="download icon" class="search-icon" />
+            </button>
         </section>
 
         <hr class="divider" />
@@ -31,10 +41,14 @@
         <main>
             <div class="gallery">
                 <div class="art-card" onclick="openModal(1)">
-                    <div class="art-img"></div>
+                    <div class="art-img">
+                        <img src="img/example.jpg" alt="art image" class="art-photo" />
+                    </div>
                     <h3>Artwork name</h3>
-                    <div class="artist-info" onclick="redirectToArtistPage()" >
-                        <div class="artist-avatar"></div>
+                    <div class="artist-info" onclick="redirectToArtistPage()">
+                        <div class="artist-avatar">
+                            <img src="img/artist.jpg" alt="art image" class="art-photo" />
+                        </div>
                         <div class="artist-text">
                             <span class="made-by">Made by</span>
                         </div>
@@ -42,10 +56,14 @@
                 </div>
 
                 <div class="art-card" onclick="openModal(1)">
-                    <div class="art-img"></div>
+                    <div class="art-img">
+                        <img src="img/example.jpg" alt="art image" class="art-photo" />
+                    </div>
                     <h3>Artwork name</h3>
                     <div class="artist-info" onclick="redirectToArtistPage()">
-                        <div class="artist-avatar"></div>
+                        <div class="artist-avatar">
+                            <img src="img/artist.jpg" alt="art image" class="art-photo" />
+                        </div>
                         <div class="artist-text">
                             <span class="made-by">Made by</span>
                         </div>
@@ -53,10 +71,14 @@
                 </div>
 
                 <div class="art-card" onclick="openModal(1)">
-                    <div class="art-img"></div>
+                    <div class="art-img">
+                        <img src="img/example.jpg" alt="art image" class="art-photo" />
+                    </div>
                     <h3>Artwork name</h3>
                     <div class="artist-info" onclick="redirectToArtistPage()">
-                        <div class="artist-avatar"></div>
+                        <div class="artist-avatar">
+                            <img src="img/artist.jpg" alt="art image" class="art-photo" />
+                        </div>
                         <div class="artist-text">
                             <span class="made-by">Made by</span>
                         </div>
@@ -64,10 +86,14 @@
                 </div>
 
                 <div class="art-card" onclick="openModal(1)">
-                    <div class="art-img"></div>
+                    <div class="art-img">
+                        <img src="img/example.jpg" alt="art image" class="art-photo" />
+                    </div>
                     <h3>Artwork name</h3>
                     <div class="artist-info" onclick="redirectToArtistPage()">
-                        <div class="artist-avatar"></div>
+                        <div class="artist-avatar">
+                            <img src="img/artist.jpg" alt="art image" class="art-photo" />
+                        </div>
                         <div class="artist-text">
                             <span class="made-by">Made by</span>
                         </div>
@@ -75,10 +101,14 @@
                 </div>
 
                 <div class="art-card" onclick="openModal(1)">
-                    <div class="art-img"></div>
+                    <div class="art-img">
+                        <img src="img/example.jpg" alt="art image" class="art-photo" />
+                    </div>
                     <h3>Artwork name</h3>
                     <div class="artist-info" onclick="redirectToArtistPage()">
-                        <div class="artist-avatar"></div>
+                        <div class="artist-avatar">
+                            <img src="img/artist.jpg" alt="art image" class="art-photo" />
+                        </div>
                         <div class="artist-text">
                             <span class="made-by">Made by</span>
                         </div>
@@ -86,10 +116,14 @@
                 </div>
 
                 <div class="art-card" onclick="openModal(1)">
-                    <div class="art-img"></div>
+                    <div class="art-img">
+                        <img src="img/example.jpg" alt="art image" class="art-photo" />
+                    </div>
                     <h3>Artwork name</h3>
                     <div class="artist-info" onclick="redirectToArtistPage()">
-                        <div class="artist-avatar"></div>
+                        <div class="artist-avatar">
+                            <img src="img/artist.jpg" alt="art image" class="art-photo" />
+                        </div>
                         <div class="artist-text">
                             <span class="made-by">Made by</span>
                         </div>
@@ -97,10 +131,14 @@
                 </div>
 
                 <div class="art-card" onclick="openModal(1)">
-                    <div class="art-img"></div>
+                    <div class="art-img">
+                        <img src="img/example.jpg" alt="art image" class="art-photo" />
+                    </div>
                     <h3>Artwork name</h3>
                     <div class="artist-info" onclick="redirectToArtistPage()">
-                        <div class="artist-avatar"></div>
+                        <div class="artist-avatar">
+                            <img src="img/artist.jpg" alt="art image" class="art-photo" />
+                        </div>
                         <div class="artist-text">
                             <span class="made-by">Made by</span>
                         </div>
@@ -108,10 +146,14 @@
                 </div>
 
                 <div class="art-card" onclick="openModal(1)">
-                    <div class="art-img"></div>
+                    <div class="art-img">
+                        <img src="img/example.jpg" alt="art image" class="art-photo" />
+                    </div>
                     <h3>Artwork name</h3>
                     <div class="artist-info" onclick="redirectToArtistPage()">
-                        <div class="artist-avatar"></div>
+                        <div class="artist-avatar">
+                            <img src="img/artist.jpg" alt="art image" class="art-photo" />
+                        </div>
                         <div class="artist-text">
                             <span class="made-by">Made by</span>
                         </div>
@@ -125,32 +167,36 @@
                 <div class="modal-content">
                     <div class="modal-main-content">
                         <div class="artwork-image-container">
-                            <div class="artwork-large-img"></div>
+                            <div class="artwork-large-img">
+                                <img src="img/example.jpg" alt="art image" class="art-photo" />
+                            </div>
                         </div>
 
                         <div class="artwork-details-container">
                             <span class="close" onclick="closeModal(1)">&times;</span>
-                            
+
                             <h2 class="artwork-name">Artwork name</h2>
 
                             <label for="price-input">Price</label>
                             <div class="detail-row">
-                                <input type="text" id="price-input" value="" readonly>
+                                <input type="text" id="price-input" value="" readonly />
                                 <span class="currency-icon">€</span>
                             </div>
 
                             <label for="license-input">License</label>
                             <div class="detail-row">
-                                <input type="text" id="license-input" value="" readonly>
+                                <input type="text" id="license-input" value="" readonly />
                                 <span class="license-icon">P</span>
                             </div>
-                            
+
                             <button class="pay-btn" onclick="redirectToPaymentPage()">Pay</button>
-                            
-                            <hr class="details-divider">
+
+                            <hr class="details-divider" />
 
                             <div class="made-by-section">
-                                <div class="artist-avatar-small" onclick="redirectToArtistPage()"></div>
+                                <div class="artist-avatar-small" onclick="redirectToArtistPage()">
+                                    <img src="img/artist.jpg" alt="art image" class="artist-photo-small" />
+                                </div>
                                 <div class="artist-info-text" onclick="redirectToArtistPage()">
                                     <span class="made-by-label">Made by</span>
                                 </div>
@@ -160,7 +206,6 @@
                     </div>
                 </div>
             </div>
-
         </main>
 
         <footer class="footer">
