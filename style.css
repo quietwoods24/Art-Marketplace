@@ -532,6 +532,8 @@ main {
     height: 30px;
     background-color: #f2f2f2;
     border-radius: 20px;
+    text-align: center;
+    padding-top: 4px;
 }
 
 /* Кнопка Confirm */
@@ -660,6 +662,7 @@ main {
     background-color: rgba(255, 255, 255, 1);
 }
 
+
 /*------Progress bar------*/
 
 #myProgress {
@@ -671,6 +674,7 @@ main {
 
 #myBar {
   width: 1%;
-  height: 30px;
+  height: 15px;
   background-color: #333;
+  border-radius: 50px;
 }
