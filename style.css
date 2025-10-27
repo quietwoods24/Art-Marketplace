@@ -659,3 +659,18 @@ main {
     transform: scale(1.08);
     background-color: rgba(255, 255, 255, 1);
 }
+
+/*------Progress bar------*/
+
+#myProgress {
+  width: 100%;
+  background-color: #f2f2f2;
+  margin-top: 30px;
+  display: none;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #333;
+}

@@ -18,6 +18,7 @@ function redirectToArtistPage() {
 }
 
 function openSuccessModal(){
+    document.getElementById("myProgress").style.display = "none";
     document.getElementById("successModal").style.display = "flex";
 }
 
@@ -38,4 +39,26 @@ function returnToReferrer() {
 
 function redirectToPurchasePage() {
     window.location.href = "purchases.html";
+}
+
+//progress bar
+var i = 0;
+function move() {
+  document.getElementById("myProgress").style.display = "flex";  
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+        openSuccessModal();
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
 }
