@@ -264,8 +264,8 @@ main {
 .close {
     font-size: 30px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -20px;
+    right: -10px;
     color: #333;
     cursor: pointer;
     z-index: 1;
