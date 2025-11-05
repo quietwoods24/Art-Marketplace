@@ -691,3 +691,18 @@ main {
   background-color: #333;
   border-radius: 50px;
 }
+
+
+.price-back {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    width: fit-content;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: 0px;
+}

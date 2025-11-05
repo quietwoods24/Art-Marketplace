@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Search artwork</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="search_style.css" />
+        <!-- шрифт та скріпт -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <script src="script.js"></script>
+
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-circle"></div>
+                <span class="logo-text">Our LOGO</span>
+            </div>
+            <div class="nav-link-container">
+                <div class="nav-link">
+                    <a href="index.html">Illustrations</a>
+                </div>
+                <div class="nav-link">
+                    <a href="search_artist.html">Artists</a>
+                </div>
+                <div class="nav-link">
+                    <a href="purchases.html">Purchases</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-section autocomplete">
+            <input id="search-input" type="text" placeholder="Search..." />
+            <button id="search-button" class="search-btn" type="button">
+                <img src="img/icons/search-normal.svg" alt="search icon" class="search-icon" />
+            </button>
+            <div id="autocomplete-list" class="autocomplete-items"></div>
+        </div>
+
+        <hr class="divider" />
+
+        <main>
+            
+
+            <form>
+                <br>
+                <p>Theme:</p>
+                <input type="checkbox" class="checkbox" id="theme-1" name="theme-1" value="Creatures">
+                <label for="theme-1">Creatures</label><br>
+                <input type="checkbox" class="checkbox" id="theme-2" name="theme-2" value="Architectural drawing">
+                <label for="theme-2">Architectural drawing</label><br>
+                <input type="checkbox" class="checkbox" id="theme-3" name="theme-3" value="Fantasy">
+                <label for="theme-3">Fantasy</label><br>
+                <input type="checkbox" class="checkbox" id="theme-4" name="theme-4" value="Horror">
+                <label for="theme-4">Horror</label><br><br>
+
+                <p>Style:</p>
+                <input type="checkbox" class="checkbox" id="style-1" name="style-1" value="Illustration">
+                <label for="style-1">Illustration</label><br>
+                <input type="checkbox" class="checkbox" id="style-2" name="style-2" value="Stylized Art">
+                <label for="style-2">Stylized Art</label><br>
+                <input type="checkbox" class="checkbox" id="style-3" name="style-3" value="Line Art">
+                <label for="style-3">Line Art</label><br>
+                <input type="checkbox" class="checkbox" id="style-4" name="style-4" value="Flat Illustration">
+                <label for="style-4">Flat Illustration</label><br><br>
+
+                <p>License:</p>
+                <input type="checkbox" class="checkbox" id="license-1" name="license-1" value="CC0">
+                <label for="license-1">CC0</label><br>
+                <input type="checkbox" class="checkbox" id="license-2" name="license-2" value="CC BY">
+                <label for="license-2">CC BY</label><br>
+                <input type="checkbox" class="checkbox" id="license-3" name="license-3" value="CC BY-SA">
+                <label for="license-3">CC BY-SA</label><br>
+                <input type="checkbox" class="checkbox" id="license-4" name="license-4" value="CC BY-NC">
+                <label for="license-4">CC BY-NC</label><br><br>
+
+                <p>Price:</p>
+                
+                <label for="price-1">From:</label>
+                <input type="number" step="0.01" id="price-1" name="price-1" value="From:"><br>             
+                <label for="price-2">To:   </label>
+                <input type="number" step="0.01" class="checkbox" id="price-2" name="price-2" value="To:"><br><br>
+            </form>
+
+            
+
+
+            <div class="gallery">
+                
+
+            <!-- модальне окно -->
+            <!-- пропоную використовувати поки що усюди одне -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <div class="modal-main-content">
+                        <div class="artwork-image-container">
+                            <div class="artwork-large-img">
+                                <img src="img/art1_8.png" alt="art image" class="art-photo" />
+                            </div>
+                        </div>
+
+                        <div class="artwork-details-container">
+                            <span class="close" onclick="closeModal(1)">&times;</span>
+
+                            <h2 class="artwork-name">Mushroom King</h2>
+
+                            <label for="price-input">Price</label>
+                            <div class="detail-row">
+                                <input type="text" id="price-input" value="16.25" readonly />
+                                <span class="currency-icon">€</span>
+                            </div>
+
+                            <label for="license-input">License</label>
+                            <div class="detail-row">
+                                <input type="text" id="license-input" value="CC0" readonly />
+                                <!-- <span class="license-icon">P</span> -->
+                            </div>
+
+                            <button class="pay-btn" onclick="redirectToPaymentPage()">Pay</button>
+
+                            <hr class="details-divider" />
+
+                            <div class="made-by-section">
+                                <div class="artist-avatar-small" onclick="redirectToArtistPage()">
+                                    <img src="img/avatar1.png" alt="art image" class="artist-photo-small" />
+                                </div>
+                                <div class="artist-info-text" onclick="redirectToArtistPage()">
+                                    <span class="made-by-label">Made by Katfish Draws</span>
+                                </div>
+                            </div>
+                            <p class="artist-lorem">A dreamy illustration of a small frog wearing a tiny crown, sitting gracefully on a red-capped mushroom in a glowing forest. Sunlight sparkles around, giving the scene a magical, fairytale-like atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 All artworks belong to their respective owners.</p>
+        </footer>
+    </body>
+
+    <script src="gallery_list.js"></script>
+    <script src="search.js"></script>
+    
+</html>
