@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Search artwork</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="search_style.css" />
+        <!-- шрифт та скріпт -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <script src="script.js"></script>
+
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-circle"></div>
+                <span class="logo-text">Our LOGO</span>
+            </div>
+            <div class="nav-link-container">
+                <div class="nav-link">
+                    <a href="index.html">Illustrations</a>
+                </div>
+                <div class="nav-link">
+                    <a href="search_artist.html">Artists</a>
+                </div>
+                <div class="nav-link">
+                    <a href="purchases.html">Purchases</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-section autocomplete">
+            <input id="search-input" type="text" placeholder="Search..." />
+            <button id="search-button" class="search-btn" type="button">
+                <img src="img/icons/search-normal.svg" alt="search icon" class="search-icon" />
+            </button>
+            <div id="autocomplete-list" class="autocomplete-items"></div>
+        </div>
+
+        <hr class="divider" />
+
+        <main>      
+            <div class="gallery">
+                
+
+            <!-- модальне окно -->
+            <!-- пропоную використовувати поки що усюди одне -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <div class="modal-main-content">
+                        <div class="artwork-image-container">
+                            <div class="artwork-large-img">
+                                <img src="img/art1_8.png" alt="art image" class="art-photo" />
+                            </div>
+                        </div>
+
+                        <div class="artwork-details-container">
+                            <span class="close" onclick="closeModal(1)">&times;</span>
+
+                            <h2 class="artwork-name">Mushroom King</h2>
+
+                            <label for="price-input">Price</label>
+                            <div class="detail-row">
+                                <input type="text" id="price-input" value="16.25" readonly />
+                                <span class="currency-icon">€</span>
+                            </div>
+
+                            <label for="license-input">License</label>
+                            <div class="detail-row">
+                                <input type="text" id="license-input" value="CC0" readonly />
+                                <!-- <span class="license-icon">P</span> -->
+                            </div>
+
+                            <button class="pay-btn" onclick="redirectToPaymentPage()">Pay</button>
+
+                            <hr class="details-divider" />
+
+                            <div class="made-by-section">
+                                <div class="artist-avatar-small" onclick="redirectToArtistPage()">
+                                    <img src="img/avatar1.png" alt="art image" class="artist-photo-small" />
+                                </div>
+                                <div class="artist-info-text" onclick="redirectToArtistPage()">
+                                    <span class="made-by-label">Made by Katfish Draws</span>
+                                </div>
+                            </div>
+                            <p class="artist-lorem">A dreamy illustration of a small frog wearing a tiny crown, sitting gracefully on a red-capped mushroom in a glowing forest. Sunlight sparkles around, giving the scene a magical, fairytale-like atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 All artworks belong to their respective owners.</p>
+        </footer>
+    </body>
+
+    <script src="gallery_list.js"></script>
+    <script src="search.js"></script>
+    
+</html>

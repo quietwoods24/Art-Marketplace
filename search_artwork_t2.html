@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Search artwork</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="search_style.css" />
+        <!-- шрифт та скріпт -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <script src="script.js"></script>
+
+    <style>
+        .gallery {
+            margin-left: 250px;
+        }
+
+        .sidenav {
+            width: 300px;
+            height: 700px;
+            position: fixed;
+            z-index: 999;
+            top: 85px;
+            left: 10px;
+            overflow-x: hidden;
+            padding: 10px;
+            padding-left: 20px;
+            border-style: solid;
+            border-left: 1px;
+            border-top: 1px;
+            border-bottom: 1px;
+            border-color: #BCBCBC;
+        }
+
+        .filter-p {
+            font-weight: 700;
+            padding-bottom: 5px;
+        }
+
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+
+            appearance: none;
+            width: 1.1rem;
+            height: 1.1rem;
+            border: 2px solid #949494;
+            border-radius: 0.25rem;
+            background-color: #fff;
+            cursor: pointer;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            margin-left: 20px;
+            margin-top: 10px;
+            
+        }
+        
+        input[type="checkbox"]:checked {
+            background-color: #000000;
+            border-color: #000000;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+        }
+
+        input[type="checkbox"]:checked + .checkbox-lb {
+            font-weight: 600;
+        }
+
+
+        input[type="checkbox"]:disabled {
+            filter: none;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            margin-top: 5px;
+            margin-left: 15px;
+        }
+
+        .checkbox-row input[type="checkbox"] {
+            margin: 0;
+        }
+
+        hr {
+        border: none;
+        height: 2px;   
+        background-color: #BCBCBC;
+        margin: 0 0 10px 0;
+        box-shadow: none;
+        }
+
+        .num-input {
+            border-radius: 10px;
+            border-style: solid;
+            padding: 2px;
+            padding-left: 5px;
+        }
+
+        .num-row {
+            display: flex;
+            gap: 10px;
+            cursor: pointer;
+            margin-top: 5px;
+            margin-left: 15px;
+        }
+        .num-row:last-child {
+            gap: 29px;
+        }
+
+        .num-input {
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 10px;
+
+            outline: none; /* убрать синюю обводку браузера */
+        }
+
+        .num-input:focus {
+            border-color: #000;
+        }
+
+    </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-circle"></div>
+                <span class="logo-text">Our LOGO</span>
+            </div>
+            <div class="nav-link-container">
+                <div class="nav-link">
+                    <a href="index.html">Illustrations</a>
+                </div>
+                <div class="nav-link">
+                    <a href="search_artist.html">Artists</a>
+                </div>
+                <div class="nav-link">
+                    <a href="purchases.html">Purchases</a>
+                </div>
+            </div>
+        </header>
+
+
+        <main>            
+            <div class="sidenav">
+                <form>
+                <br>
+
+                <p class="filter-p">Theme:</p>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="theme-1" name="theme-1" value="Creatures">
+                    <label class="checkbox-lb" for="theme-1">Creatures</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="theme-2" name="theme-2" value="Architectural drawing">
+                    <label class="checkbox-lb" for="theme-2">Architectural drawing</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="theme-3" name="theme-3" value="Fantasy">
+                    <label class="checkbox-lb" for="theme-3">Fantasy</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="theme-4" name="theme-4" value="Horror">
+                    <label class="checkbox-lb" for="theme-4">Horror</label><br><br>
+                </div>
+                <br>
+                <hr>
+                <p class="filter-p">Style:</p>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="style-1" name="style-1" value="Illustration">
+                    <label class="checkbox-lb" for="style-1">Illustration</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="style-2" name="style-2" value="Stylized Art">
+                    <label class="checkbox-lb" for="style-2">Stylized Art</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="style-3" name="style-3" value="Line Art">
+                    <label class="checkbox-lb" for="style-3">Line Art</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="style-4" name="style-4" value="Flat Illustration">
+                    <label class="checkbox-lb" for="style-4">Flat Illustration</label><br><br>
+                </div>
+                <br>
+                <hr>
+                <p class="filter-p">License:</p>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="license-1" name="license-1" value="CC0">
+                    <label class="checkbox-lb" for="license-1">CC0</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="license-2" name="license-2" value="CC BY">
+                    <label class="checkbox-lb" for="license-2">CC BY</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="license-3" name="license-3" value="CC BY-SA">
+                    <label class="checkbox-lb" for="license-3">CC BY-SA</label><br>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="license-4" name="license-4" value="CC BY-NC">
+                    <label class="checkbox-lb" for="license-4">CC BY-NC</label><br><br>
+                </div>
+                <br>
+                <hr>
+                <p class="filter-p">Price:</p>
+                <div class="num-row">
+                    <label class="num-lb" for="price-1">From:</label>
+                    <input class="num-input" type="number" step="0.01" id="price-1" name="price-1" value="From:"><br>             
+                </div>
+                <div class="num-row">
+                    <label class="num-lb" for="price-2">To:   </label>
+                    <input class="num-input" type="number" step="0.01" class="checkbox" id="price-2" name="price-2" value="To:"><br><br>
+                </div>
+            </form>
+
+            </div>
+            
+
+            
+
+
+            <div class="gallery">
+                
+
+            <!-- модальне окно -->
+            <!-- пропоную використовувати поки що усюди одне -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <div class="modal-main-content">
+                        <div class="artwork-image-container">
+                            <div class="artwork-large-img">
+                                <img src="img/art1_8.png" alt="art image" class="art-photo" />
+                            </div>
+                        </div>
+
+                        <div class="artwork-details-container">
+                            <span class="close" onclick="closeModal(1)">&times;</span>
+
+                            <h2 class="artwork-name">Mushroom King</h2>
+
+                            <label for="price-input">Price</label>
+                            <div class="detail-row">
+                                <input type="text" id="price-input" value="16.25" readonly />
+                                <span class="currency-icon">€</span>
+                            </div>
+
+                            <label for="license-input">License</label>
+                            <div class="detail-row">
+                                <input type="text" id="license-input" value="CC0" readonly />
+                                <!-- <span class="license-icon">P</span> -->
+                            </div>
+
+                            <button class="pay-btn" onclick="redirectToPaymentPage()">Pay</button>
+
+                            <hr class="details-divider" />
+
+                            <div class="made-by-section">
+                                <div class="artist-avatar-small" onclick="redirectToArtistPage()">
+                                    <img src="img/avatar1.png" alt="art image" class="artist-photo-small" />
+                                </div>
+                                <div class="artist-info-text" onclick="redirectToArtistPage()">
+                                    <span class="made-by-label">Made by Katfish Draws</span>
+                                </div>
+                            </div>
+                            <p class="artist-lorem">A dreamy illustration of a small frog wearing a tiny crown, sitting gracefully on a red-capped mushroom in a glowing forest. Sunlight sparkles around, giving the scene a magical, fairytale-like atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 All artworks belong to their respective owners.</p>
+        </footer>
+    </body>
+
+    <script src="gallery_list.js"></script>
+    <script src="search.js"></script>
+    
+</html>
+
