@@ -1,0 +1,712 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #888;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 200; /*for modal window*/
+}
+
+.nav-link-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+.nav-link a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-circle {
+    width: 25px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.profile-icon .profile-circle {
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.search-section input {
+    width: 60%;
+    max-width: 400px;
+    padding: 10px 15px;
+    border: none;
+    background: #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.search-btn {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.search-icon {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 6px !important;
+}
+
+.divider {
+    width: 90%;
+    margin: 0 auto;
+    border: none;
+    border-top: 2px solid #eee;
+}
+
+main {
+    flex-grow: 1;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.1fr));
+    gap: 30px;
+    justify-content: center;
+    justify-items: center;
+    padding: 40px 0;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+.art-card {
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.art-img {
+    width: 100%;
+    height: 300px;
+    background: #d6d6d6;
+    margin-bottom: 10px;
+    border-radius: 0px;
+}
+
+.art-card h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.artist-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.artist-avatar {
+    width: 15px;
+    height: 15px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.made-by {
+    font-size: 11px;
+    color: #555;
+}
+
+.footer {
+    margin-top: 100px;
+    width: 100%;
+    position: relative;
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    text-align: center;
+    background: #f2f2f2;
+    padding: 15px 0;
+    font-size: 12px;
+    color: #333;
+}
+
+.top-info-section {
+    width: 100%;
+    /*height: 200px;
+    background-color: #e9e9e9;
+    margin-bottom: 20px;*/
+    padding: 20px 20px;
+}
+
+.artist-name {
+    text-align: center;
+    font-size: 17px !important;
+}
+
+/*----------Modal window - open+close------------*/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Darker overlay as in the screenshot */
+    background-color: rgba(239, 239, 239, 0.5);
+    justify-content: center;
+    align-items: flex-start; /* Align to the top of the visible part */
+    padding-top: 0; /* maybe change this one to use header */
+}
+
+/* Стили для содержимого модального окна */
+.modal-content {
+    background-color: transparent; /* Main wrapper is transparent */
+    position: relative;
+    /* The max-width and margin are for centering the whole block */
+    max-width: 1000px;
+    width: 90%;
+}
+
+.modal-main-content {
+    display: flex;
+    background-color: #fff; /* White background for the main box */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* To keep the content within the border-radius */
+    padding: 20px;
+    position: relative;
+    z-index: 2; /* Make sure the modal box is above the outside profile content */
+    margin-top: 100px; /* Push the box down to make space for the profile outside */
+}
+
+/* Left side: Artwork Image */
+.artwork-image-container {
+    flex: 2; /* Takes up more space, e.g., 60-70% */
+    padding-right: 20px;
+}
+
+.artwork-large-img {
+    width: 100%;
+    height: 600px; /* или 100% родителя, если нужно */
+    border-radius: 5px;
+    overflow: hidden; /* обрезаем изображение по границам контейнера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8a8a8a;
+}
+
+.artwork-large-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* заполняет контейнер, сохраняя пропорции, обрезает лишнее*/
+    /* object-fit: cover; */
+    /* заполняет контейнер, сохраняя пропорции, обрезает лишнее */
+    display: block;
+}
+
+/* Right side: Details and Buy */
+.artwork-details-container {
+    flex: 1; /* Takes up less space, e.g., 30-40% */
+    padding-left: 20px;
+    border-left: 1px solid transparent; /* No visible divider, just for spacing */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/*-------------------Close button---------*/
+.close {
+    font-size: 30px;
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    color: #333;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/*----------Artwork Name-----------*/
+.artwork-name {
+    font-size: 3em;
+    font-weight: 300;
+    margin-top: 5px; /* Adjust spacing from the top/close button */
+    margin-bottom: 50px;
+}
+
+/*-----------Price and License Rows---------*/
+.detail-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.detail-row label {
+    flex-basis: 30%; /* Set a fixed width for the label */
+    font-weight: normal;
+    color: #333;
+}
+
+.detail-row input {
+    flex-grow: 1;
+    padding: 8px 10px;
+    background-color: #ececec;
+    border: 0;
+    border-radius: 20px;
+    margin-right: 5px; /* Space for the icon */
+}
+
+.detail-row input[readonly] {
+    cursor: default;
+    user-select: none;
+}
+
+.detail-row input[readonly]:focus,
+.detail-row input[readonly]:active {
+    outline: none;
+}
+
+.currency-icon,
+.license-icon {
+    width: 20px;
+    height: 20px;
+    color: #e0e0e0;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+}
+
+/*----------Pay Button---------------*/
+.pay-btn {
+    padding: 5px 5px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px 40px 10px 40px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    transition: all 0.2s ease;
+}
+
+.pay-btn:hover {
+    background-color: #333;
+}
+
+/*------------Divider Line------------- */
+.details-divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 15px 0;
+}
+
+/*-------------Made By Section-------*/
+.made-by-section {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.artist-avatar-small {
+    width: 30px;
+    height: 30px;
+    background-color: lightgray;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.artist-avatar-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.art-photo {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.art-photo.artwork {
+    height: 300px;
+}
+
+.art-photo:hover {
+    transform: scale(1.05);
+}
+
+.artist-photo-small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+.made-by-label {
+    font-weight: bold;
+    display: block;
+    font-weight: 500;
+}
+
+.artist-lorem {
+    font-size: 0.85em;
+    color: gray;
+    margin: 10px 0 0 0;
+    text-align: justify;
+}
+
+/*-----------Artist profile-----------*/
+.artist-profile-outside {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    position: absolute;
+    position: relative;
+}
+
+.artist-avatar-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    flex-shrink: 0;
+    background-color: lightgray;
+}
+
+.artist-avatar {
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.artist-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.artist-avatar-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.artist-name-outside {
+    font-size: 2.8em;
+    font-weight: 300;
+    margin: 0;
+}
+
+.artist-desc-outside {
+    color: gray;
+    margin: 5px 0 0 0;
+    font-size: 1em;
+}
+
+/*-----Payment confirmation----*/
+
+.confirmation-container {
+    max-width: 900px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white; /* Фон, если нужно отделить от основного body */
+}
+
+.confirmation-title {
+    font-size: 2.2em;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.confirmation-divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0 40px 0;
+}
+
+/* Основной Flex-контейнер для изображения и деталей */
+.confirmation-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Левая часть: Изображение */
+.confirmation-artwork-img {
+    flex-shrink: 0; /* Запрещаем сжатие */
+    width: 350px; /* Фиксированная ширина */
+    height: 350px; /* Квадратная форма, как на скрине */
+    overflow: hidden;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+.confirmation-artwork-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Правая часть: Детали и кнопка */
+.confirmation-details {
+    flex-grow: 1; /* Занимает оставшееся место */
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+/* Строки деталей */
+.confirm-detail-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.confirm-detail-row label {
+    flex-basis: 140px; /* Фиксированная ширина для label */
+    font-weight: 400;
+    color: #333;
+    flex-shrink: 0; /* Чтобы не сжимался */
+    padding-right: 15px;
+}
+
+/* Имитация поля ввода для вывода информации */
+.confirm-info-box {
+    flex-grow: 1;
+    height: 30px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 4px;
+}
+
+/* Кнопка Confirm */
+.confirm-btn {
+    margin-top: 104.8px;
+    padding: 8px 8px;
+    width: 100%;
+    max-width: 250px; /* Ограничиваем максимальную ширину кнопки */
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px 40px 10px 40px; /* Пример: используем асимметричное скругление */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.2s ease;
+}
+
+.confirm-btn:hover {
+    background-color: #333;
+}
+
+/*----------- MODAL SUCCESS STYLES -----------*/
+.modal-success {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(239, 239, 239, 0.5); /* Полупрозрачный фон */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-success-content {
+    background-color: white;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+}
+
+.success-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.success-divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 20px 0;
+}
+
+.success-btn {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px 40px 10px 40px; /* Асимметричное скругление */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 10px auto;
+    display: block; /* Чтобы кнопки занимали всю ширину контейнера */
+    transition: all 0.2s ease;
+}
+
+/* Черная кнопка OK */
+.ok-btn {
+    background-color: black;
+    color: white;
+    transition: all 0.2s ease;
+}
+.ok-btn:hover {
+    background-color: #333;
+}
+
+/* Серая кнопка "View my purchases" */
+.view-btn {
+    background-color: #999;
+    color: white;
+    font-weight: 500;
+}
+.view-btn:hover {
+    background-color: #777;
+}
+
+/* ================================ */
+
+.art-img {
+    position: relative !important;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 6px;
+    background: none !important; /* убираем серый фон, чтобы видеть фото */
+}
+
+.art-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+}
+
+.icon-heart-img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.18s, background-color 0.18s;
+    z-index: 10;
+}
+.icon-heart-img:hover {
+    transform: scale(1.08);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+/*------Progress bar------*/
+
+#myProgress {
+  width: 100%;
+  background-color: #f2f2f2;
+  margin-top: 30px;
+  display: none;
+}
+
+#myBar {
+  width: 1%;
+  height: 15px;
+  background-color: #333;
+  border-radius: 50px;
+}
+
+
+.price-back {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    width: fit-content;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+/*------Sidebar------*/
+
+
