@@ -15,7 +15,7 @@ const imgInfList = [
     },
     
     {
-        "artwork_src" : 'img/art1_2.png',
+        "artwork_src" : 'img/art2_1.png',
         "artwork_name": 'Collonges-la-Rouge',
         "avatar_src"  : 'img/avatar2.png',
         "autor_name"  : 'Ethan Davies',        
