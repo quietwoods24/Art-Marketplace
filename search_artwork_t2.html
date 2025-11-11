@@ -211,11 +211,14 @@
                 <p class="filter-p">Price:</p>
                 <div class="num-row">
                     <label class="num-lb" for="price-1">From:</label>
-                    <input class="num-input" type="number" step="0.01" id="price-1" name="price-1" value="From:"><br>             
+                    <input class="num-input" type="number" step="0.01" id="price-1" name="price-1"
+                        min="1" max="100000" placeholder="1">
                 </div>
+
                 <div class="num-row">
-                    <label class="num-lb" for="price-2">To:   </label>
-                    <input class="num-input" type="number" step="0.01" class="checkbox" id="price-2" name="price-2" value="To:"><br><br>
+                    <label class="num-lb" for="price-2">To:</label>
+                    <input class="num-input" type="number" step="0.01" id="price-2" name="price-2"
+                        min="1" max="100000" placeholder="100000">
                 </div>
             </form>
 
